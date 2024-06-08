@@ -11,7 +11,16 @@ const Topics = () => {
         </Fab>
       </div>
       <hr />
-      <span>this is where they will go</span>
+      <div className="topics-list">
+        <div className="topic-example"></div>
+        <span>title 1</span>
+        <hr />
+        <div className="topic-example"></div>
+        <span>title 2</span>
+        <hr />
+        <div className="topic-example"></div>
+        <span>title 3</span>
+      </div>
     </div>
   );
 };
