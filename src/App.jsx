@@ -8,7 +8,7 @@ function App() {
       <Title />
       <main>
         <Menu />
-        <Topics />
+        {/* <Topics /> */}
         <div className="card-container">
           <Card />
         </div>

@@ -1,11 +1,12 @@
 import AddIcon from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
 
-const Topics = () => {
+const CardSets = ({className}) => {
+
   return (
-    <div className="topics">
+    <div className={`topics ${className}`}>
       <div className="title-container">
-        <span>TOPICS</span>
+        <span>Card Sets</span>
         <Fab color="primary" aria-label="add" size="small">
           <AddIcon />
         </Fab>
@@ -24,4 +25,5 @@ const Topics = () => {
     </div>
   );
 };
-export default Topics;
+export default CardSets;
+

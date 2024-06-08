@@ -1,6 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 
 $menu-width: 14rem;
+$transition: 0.25s ease-in-out;
 
 html {
   scroll-behavior: smooth;
@@ -20,7 +21,7 @@ body {
   background: blue;
   color: white;
   filter: drop-shadow(0 0 4px #000000);
-  z-index: 100;
+  z-index: 100000;
 }
 
 main {
@@ -38,6 +39,7 @@ main {
   color: #123;
   padding: 1rem;
   filter: drop-shadow(0 0 4px #00000025);
+  z-index: 100;
 
   ul {
     display: flex;
@@ -53,20 +55,39 @@ main {
       list-style: none;
       padding-block: inherit;
       width: 100%;
-      transition: 250ms ease;
+      transition: 250ms ease-in-out;
       padding-left: 0.25rem;
+      margin-block: 0.5rem;
+
+      button {
+        span {
+          margin-left: 1rem;
+        }
+      }
     }
 
     .autocomplete {
       position: absolute;
-      width: 17.5rem;
-      top: 0;
-      left: 4rem;
+      top: 0.5rem;
+      right: 1rem;
       background-color: white;
       padding: 0;
       margin: 0;
-      outline: red 1px solid;
       z-index: 100;
+      width: 19rem;
+
+      .MuiFormControl-root {
+        position: relative;
+        max-height: 4rem;
+
+        label {
+          position: absolute;
+          top: -1.5rem;
+          left: 0rem;
+          background-color: white;
+          padding-inline: 0.25rem;
+        }
+      }
     }
   }
 }
@@ -76,11 +97,11 @@ main {
   left: 0;
   bottom: 0;
   width: 24rem;
-  transition: 250ms ease;
+  transition: $transition;
 }
 
 .closed {
-  transition: 250ms ease;
+  transition: $transition;
 }
 
 .topics {
@@ -91,7 +112,7 @@ main {
   width: 20rem;
   background: antiquewhite;
   padding: 1rem;
-  z-index: -10;
+  z-index: 0;
 
   .title-container {
     display: flex;
@@ -175,7 +196,7 @@ main {
   background: none;
   padding: 0;
   border-radius: 0;
-  transition: 250ms ease;
+  transition: $transition;
 
   &:hover {
     scale: 1.1;
@@ -186,12 +207,12 @@ main {
     position: absolute;
     width: 100%;
     top: 0;
-    bottom: 0;
+    bottom: -4px;
     background-image: linear-gradient(90deg, black, black);
     background-size: 0 2px;
     background-repeat: no-repeat;
     background-position: left bottom;
-    transition: background-size 0.25s ease-in;
+    transition: background-size $transition;
   }
 
   &:hover::before {
@@ -201,7 +222,7 @@ main {
 
 .show {
   display: inline;
-  transition: 250ms ease;
+  transition: $transition;
   transition-delay: 250ms;
   animation: appear 1s;
 }
@@ -210,12 +231,12 @@ main {
   display: none !important;
 }
 
-
 @keyframes appear {
   from {
     display: none;
     opacity: 0;
-  } to {
+  }
+  to {
     display: inline;
     opacity: 1;
   }

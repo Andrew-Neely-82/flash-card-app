@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
-const Search = () => {
+const Search = ({className}) => {
   const options = top100Films.map((option) => {
     const firstLetter = option.title[0].toUpperCase();
     return {
@@ -14,7 +14,7 @@ const Search = () => {
   return (
     <>
       <Autocomplete
-        className="autocomplete"
+        className={` ${className}`}
         options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
         groupBy={(option) => option.firstLetter}
         getOptionLabel={(option) => option.title}
