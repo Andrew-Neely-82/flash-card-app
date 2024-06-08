@@ -1,4 +1,4 @@
-import { Menu, Title } from "./components/export";
+import { Menu, Title, Topics } from "./components/export";
 import "./App.scss";
 import Card from "./components/card/Card";
 
@@ -8,7 +8,10 @@ function App() {
       <Title />
       <main>
         <Menu />
-        <Card />
+        <Topics />
+        <div className="card-container">
+          <Card />
+        </div>
       </main>
     </>
   );

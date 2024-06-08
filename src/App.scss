@@ -1,5 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 
+$menu-width: 14rem;
+
 html {
   scroll-behavior: smooth;
 }
@@ -23,11 +25,13 @@ body {
 
 main {
   display: flex;
+  justify-content: space-between;
 }
 
 .menu {
-  min-width: 1rem;
-  width: 14rem;
+  min-width: 4rem;
+  width: $menu-width;
+  width: 4rem;
   background-color: white;
   min-height: calc(100dvh - 2rem);
   color: #123;
@@ -43,6 +47,33 @@ main {
       list-style: none;
       padding-block: inherit;
     }
+  }
+}
+
+.topics {
+  width: 20rem;
+  background: antiquewhite;
+  padding: 1rem;
+
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+
+  .card {
+    display: flex;
+    align-items: center;
+    height: 75%;
+    width: 50%;
   }
 }
 
@@ -63,7 +94,6 @@ main {
   }
 
   svg {
-
     height: 3em;
 
     transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,4 +110,5 @@ main {
     .line-top-bottom {
       stroke-dasharray: 12 63;
     }
-  }}
+  }
+}
