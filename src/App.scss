@@ -16,14 +16,16 @@ body {
 
 .title {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
   height: 2rem;
   background: blue;
   color: white;
   filter: drop-shadow(0 0 4px #000000);
   z-index: 100000;
+
+  span {
+    place-self: center;
+  }
 }
 
 main {
@@ -155,9 +157,36 @@ main {
 
   .card {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     width: 60dvw;
     height: 60dvh;
+    padding: 1rem;
+
+    .title-container,
+    .q-a-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .tags-container {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      width: 100%;
+
+      .tags-title {
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .tag {
+        background: gray;
+        padding: 0.125rem 0.5rem;
+        border-radius: 10rem;
+        color: white;
+        margin-right: 0.5rem;
+      }
+    }
   }
 }
 

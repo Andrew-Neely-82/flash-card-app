@@ -8,7 +8,6 @@ function App() {
       <Title />
       <main>
         <Menu />
-        {/* <Topics /> */}
         <div className="card-container">
           <Card />
         </div>

@@ -1,7 +1,9 @@
 const Title = () => {
   return (
     <>
-      <div className="title">Flash Cards</div>
+      <div className="title">
+        <span>Flash Cards</span>
+      </div>
     </>
   );
 };
