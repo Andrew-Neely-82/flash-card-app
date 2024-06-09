@@ -2,6 +2,7 @@
 
 $menu-width: 14rem;
 $transition: 0.25s ease-in-out;
+$shadow: drop-shadow(0 0 6px #00000050);
 
 html {
   scroll-behavior: smooth;
@@ -14,6 +15,7 @@ body {
 }
 
 .title {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,8 +27,10 @@ body {
 }
 
 main {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  min-height: calc(100dvh - 2rem);
 }
 
 .menu {
@@ -38,7 +42,7 @@ main {
   min-height: calc(100dvh - 2rem);
   color: #123;
   padding: 1rem;
-  filter: drop-shadow(0 0 4px #00000025);
+  filter: $shadow;
   z-index: 100;
 
   ul {
@@ -55,7 +59,7 @@ main {
       list-style: none;
       padding-block: inherit;
       width: 100%;
-      transition: 250ms ease-in-out;
+      transition: $transition;
       padding-left: 0.25rem;
       margin-block: 0.5rem;
 
@@ -100,19 +104,18 @@ main {
   transition: $transition;
 }
 
-.closed {
-  transition: $transition;
-}
-
 .topics {
   position: absolute;
-  top: 2rem;
+  top: 0;
   left: 4rem;
-  height: calc(100% - 2rem);
+  height: 100%;
   width: 20rem;
   background: antiquewhite;
   padding: 1rem;
-  z-index: 0;
+  transition: $transition;
+  filter: $shadow;
+  overflow: auto;
+  z-index: 20;
 
   .title-container {
     display: flex;
@@ -140,17 +143,21 @@ main {
 }
 
 .card-container {
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  bottom: 25%;
+  left: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 1rem;
+  z-index: 10;
 
   .card {
     display: flex;
     align-items: center;
-    height: 75%;
-    width: 50%;
+    width: 60dvw;
+    height: 60dvh;
   }
 }
 
@@ -221,23 +228,62 @@ main {
 }
 
 .show {
-  display: inline;
-  transition: $transition;
-  transition-delay: 250ms;
   animation: appear 1s;
+  animation-delay: 0.5s;
 }
 
-.hidden {
+.no-underline {
+  &:hover::before {
+    content: "";
+    background-size: 0% 2px;
+  }
+}
+
+.show-menu-text {
+  animation: appear 250ms ease;
+}
+
+.show-menu-text {
+  transition: 1s ease-in-out, visibility 0s 0s;
+}
+
+.menu {
+  transition: width 0.5s ease-in-out;
+}
+
+.menu.open .menu-text {
+  width: auto;
+}
+
+.topics-hidden {
+  left: -16rem;
+  transition: $transition;
+}
+
+.d-none {
   display: none !important;
 }
 
+.disappear {
+  animation: disappear 250ms;
+}
+
+// * keyframes
+
 @keyframes appear {
   from {
-    display: none;
     opacity: 0;
   }
   to {
-    display: inline;
     opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
